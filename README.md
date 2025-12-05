@@ -1,173 +1,80 @@
-💼 FlowDash v2
+# FlowDash v2
 
-A Evolução Enterprise do FlowDash.
-Migrando de uma solução local para uma plataforma web escalável, multi-usuário e de alta performance.
+> **A Evolução Enterprise do FlowDash.**
+> [cite_start]Migração de uma solução local (Streamlit) para uma plataforma web escalável, multi-utilizador e de alta performance. [cite: 4]
 
-🎯 Visão Geral
+## Visão Geral
 
-O FlowDash v2 é a refatoração completa do nosso sistema de gestão financeira. O objetivo é eliminar as limitações da versão anterior (travamento de arquivos, concorrência limitada) adotando uma arquitetura moderna de Microsserviços Monolíticos.
+O **FlowDash v2** é a refatoração completa do nosso sistema de gestão financeira. [cite_start]O objetivo é eliminar as limitações da versão anterior (travamento de arquivos, concorrência limitada) adotando uma arquitetura moderna de **Microsserviços Monolíticos**. [cite: 6, 7]
 
-O sistema continua sendo um auditor financeiro em tempo real, focado em varejo físico, mas agora preparado para escalar.
+[cite_start]O sistema continua a ser um auditor financeiro em tempo real, focado em retalho físico, mas agora preparado para escalar. [cite: 8]
 
-🚀 O que muda na v2?
+### O que muda na v2?
 
-Característica
+| Característica    | Versão 1 (Legado)              | Versão 2 (Nova Stack)          |
+|-------------------|--------------------------------|--------------------------------|
+| **Tecnologia**    | Python Streamlit               | Next.js (React) + FastAPI      |
+| **Base de Dados** | SQLite (Arquivo Local)         | PostgreSQL (Cloud)             |
+| **Acesso**        | Single-thread / Travas manuais | Multi-user / Concorrência Real |
+| **Mobile**        | Responsividade limitada        | PWA Mobile-First (PDV)         |
+| **Lógica**        | Misturada com UI               | Clean Architecture (Services)  |
+[cite_start][cite: 10]
 
-Versão 1 (Legado)
+---
 
-Versão 2 (Nova Stack)
+## Funcionalidades Core
 
-Tecnologia
+[cite_start]O FlowDash v2 mantém e expande as funcionalidades críticas de negócio: [cite: 12]
 
-Python + Streamlit
+### 1. Gestão Financeira (Ledger)
+* [cite_start]**Princípio da Dupla Entrada:** Toda a movimentação tem origem e destino (Ex: Sai de Caixa, Entra em Banco Inter). [cite: 14]
+* [cite_start]**Contas a Pagar (CAP):** Motor de amortização para Empréstimos, Boletos e Faturas de Cartão. [cite: 15]
+* [cite_start]**Idempotência:** O sistema previne lançamentos duplicados mesmo se a internet do vendedor falhar. [cite: 16]
 
-Next.js (React) + FastAPI
+### 2. PDV Ágil (Mobile)
+* [cite_start]Interface simplificada para vendedores. [cite: 18]
+* [cite_start]Login rápido via PIN de 4 dígitos. [cite: 19]
+* [cite_start]Cálculo automático de taxas de terminais de pagamento em tempo real. [cite: 20]
+* [cite_start]**Offline First:** Funciona offline (PWA) para lançamentos essenciais. [cite: 21]
 
-Banco de Dados
+### 3. Analytics & DRE
+* [cite_start]**DRE em Tempo Real:** Cálculo automático de Receita Líquida, CMV e Margem de Contribuição. [cite: 27]
+* [cite_start]**Previsão de Faturação:** Integração com IA (Prophet) para projetar o fecho do mês. [cite: 28]
+* [cite_start]**Metas Dinâmicas:** Acompanhamento de objetivos (Bronze/Prata/Ouro). [cite: 28]
 
-SQLite (Arquivo Local)
+---
 
-PostgreSQL (Cloud)
+## Stack Tecnológica
 
-Acesso
+### Frontend (`/frontend`)
+* [cite_start]**Next.js 14 (App Router):** Renderização híbrida (SSR para Dashboards, CSR para PDV). [cite: 31]
+* [cite_start]**Tailwind CSS + ShadcnUI:** Design System moderno e acessível. [cite: 32]
+* [cite_start]**TanStack Query:** Gerenciamento de estado assíncrono e cache. [cite: 33]
 
-Single-thread / Travas manuais
+### Backend (`/backend`)
+* [cite_start]**FastAPI:** Performance extrema e validação automática de dados (Pydantic). [cite: 35]
+* [cite_start]**SQLAlchemy 2.0 (Async):** ORM moderno para acesso à base de dados. [cite: 35]
+* [cite_start]**Alembic:** Gerenciamento de migrações do esquema da base de dados. [cite: 36]
+* [cite_start]**Python 3.11+:** Tipagem forte em todo o código. [cite: 37]
 
-Multi-user / Concorrência Real
+### Infraestrutura
+* [cite_start]**PostgreSQL 15+:** Base de dados relacional robusta. [cite: 39]
+* [cite_start]**Docker:** Padronização do ambiente de desenvolvimento. [cite: 40]
 
-Mobile
+---
 
-Responsividade limitada
+## Como Rodar o Projeto (Dev)
 
-PWA Mobile-First (PDV)
+### Pré-requisitos
+* Docker & Docker Compose
+* Node.js 18+
+* Python 3.11+
 
-Lógica
+### 1. Clonar e Configurar
 
-Misturada com UI
-
-Clean Architecture (Services)
-
-🧠 Funcionalidades Core
-
-O FlowDash v2 mantém e expande as funcionalidades críticas de negócio:
-
-💰 1. Gestão Financeira (Ledger)
-
-Princípio da Dupla Entrada: Toda movimentação tem origem e destino (Ex: Sai de Caixa, Entra em Banco Inter).
-
-Contas a Pagar (CAP): Motor de amortização para Empréstimos, Boletos e Faturas de Cartão.
-
-Idempotência: O sistema previne lançamentos duplicados mesmo se a internet do vendedor falhar.
-
-📱 2. PDV Ágil (Mobile)
-
-Interface simplificada para vendedores.
-
-Login rápido via PIN de 4 dígitos.
-
-Cálculo automático de taxas de maquininha em tempo real.
-
-Funciona offline (PWA) para lançamentos essenciais.
-
-📊 3. Analytics & DRE
-
-DRE em Tempo Real: Cálculo automático de Receita Líquida, CMV e Margem de Contribuição.
-
-Previsão de Faturamento: Integração com IA (Prophet) para projetar o fechamento do mês.
-
-Metas Dinâmicas: Acompanhamento de atingimento (Bronze/Prata/Ouro).
-
-🛠️ Stack Tecnológica
-
-Frontend (/frontend)
-
-Next.js 14 (App Router): Renderização híbrida (SSR para Dashboards, CSR para PDV).
-
-Tailwind CSS + ShadcnUI: Design System moderno e acessível.
-
-TanStack Query: Gerenciamento de estado assíncrono e cache.
-
-Backend (/backend)
-
-FastAPI: Performance extrema e validação automática de dados (Pydantic).
-
-SQLAlchemy 2.0 (Async): ORM moderno para acesso ao banco.
-
-Alembic: Gerenciamento de migrações do esquema do banco.
-
-Python 3.11+: Tipagem forte em todo o código.
-
-Infraestrutura
-
-PostgreSQL 15+: Banco de dados relacional robusto.
-
-Docker: Padronização do ambiente de desenvolvimento.
-
-🏗️ Como Rodar o Projeto (Dev)
-
-Pré-requisitos
-
-Docker & Docker Compose
-
-Node.js 18+
-
-Python 3.11+
-
-1. Clonar e Configurar
-
+```bash
 git clone [https://github.com/alexmabud/flowdash_v2](https://github.com/alexmabud/flowdash_v2)
 cd flowdash_v2
 
-# Copie as variáveis de ambiente
+# Copie as variáveis de ambiente base
 cp .env.example .env
-
-
-2. Iniciar os Serviços (Docker)
-
-Levanta o Banco de Dados, Backend e Frontend simultaneamente.
-
-docker-compose up -d --build
-
-
-3. Acessar
-
-Frontend: http://localhost:3000
-
-API Docs (Swagger): http://localhost:8000/docs
-
-Banco (Adminer/PgAdmin): http://localhost:8080 (se configurado)
-
-🗂️ Estrutura do Projeto
-
-flowdash-v2/
-├── backend/                # API FastAPI
-│   ├── app/
-│   │   ├── api/            # Rotas (Endpoints)
-│   │   ├── models/         # Tabelas do Banco (SQLAlchemy)
-│   │   ├── services/       # Regras de Negócio (Ledger, Vendas)
-│   │   └── schemas/        # Validação de Dados (Pydantic)
-│   └── alembic/            # Migrações de Banco
-│
-├── frontend/               # Next.js App
-│   ├── src/
-│   │   ├── app/            # Páginas (Admin, PDV, Login)
-│   │   ├── components/     # UI Reutilizável
-│   │   └── lib/            # Utilitários e API Client
-│
-└── DESIGN_DOCUMENT_V2.md   # Documentação Técnica Completa (Blueprint)
-
-
-🔐 Segurança
-
-Autenticação: JWT (JSON Web Tokens) com refresh rotation.
-
-Trava de Fechamento: Middleware que impede edições em dias com caixa já encerrado (LockService).
-
-Auditoria: Todas as transações financeiras possuem log de created_at e user_id.
-
-👨‍💻 Contribuição
-
-Consulte o arquivo DESIGN_DOCUMENT_V2.md na raiz antes de iniciar qualquer desenvolvimento. Ele contém as especificações técnicas, regras de negócio migradas e o mapa detalhado dos módulos.
-
-Autor: Alex Abud
-Projeto: FlowDash v2 — Enterprise Financial System
